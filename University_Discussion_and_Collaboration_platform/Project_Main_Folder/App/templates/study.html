@@ -1,0 +1,117 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester Buttons</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #1E3C72, #2A5298, #4A90E2, #A8C0FF);
+            color: white;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Container Styling */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* Box Styling */
+        .box {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+    <script>
+        function handleClick(selection) {
+            let data = {
+                'B.Tech': ['CSE', 'ECE', 'MECH', 'CIVIL', 'EEE', 'MME', 'CHEM'],
+                'CSE': ['E1 Sem1', 'E1 Sem2', 'E2 Sem1', 'E2 Sem2','E3 Sem1','E3 Sem2','E4 Sem1','E4 Sem2','BOS','Timetable'],
+                'ECE': ['E1 Sem1', 'E1 Sem2', 'E2 Sem1', 'E2 Sem2','E3 Sem1','E3 Sem2','E4 Sem1','E4 Sem2'],
+                'MECH':['E1 Sem1', 'E1 Sem2', 'E2 Sem1', 'E2 Sem2','E3 Sem1','E3 Sem2','E4 Sem1','E4 Sem2'],
+                'CIVIL':['E1 Sem1', 'E1 Sem2', 'E2 Sem1', 'E2 Sem2','E3 Sem1','E3 Sem2','E4 Sem1','E4 Sem2'],
+                'EEE':['E1 Sem1', 'E1 Sem2', 'E2 Sem1', 'E2 Sem2','E3 Sem1','E3 Sem2','E4 Sem1','E4 Sem2'],
+                'MME':['E1 Sem1', 'E1 Sem2', 'E2 Sem1', 'E2 Sem2','E3 Sem1','E3 Sem2','E4 Sem1','E4 Sem2'],
+                'CHEM':['E1 Sem1', 'E1 Sem2', 'E2 Sem1', 'E2 Sem2','E3 Sem1','E3 Sem2','E4 Sem1','E4 Sem2'],
+                'E1 Sem1': ['CLA', 'BEEE', 'EGCD', 'English', 'IC'],
+                'E1 Sem2': ['EP', 'DM', 'OOPS', 'DS', 'EVS'],
+                'E2 Sem1':['DLD','DBMS','P&S','FLAT','DAA'],
+                'E2 Sem2':['WT','COA','CD','IOR','DSP'],
+                'P1 Sem1': ['Maths', 'Physics', 'Chemistry', 'Telugu', 'English', 'Information Technology'],
+                'P1 Sem2': ['Maths', 'Physics', 'Chemistry', 'Telugu', 'English', 'Information Technology', 'Biology'],
+                'P2 Sem1': ['Maths', 'Physics', 'Chemistry', 'Telugu', 'English', 'Information Technology', 'Biology'],
+                'P2 Sem2': ['Maths', 'Physics', 'Chemistry', 'Telugu', 'English', 'Information Technology']
+            };
+
+            let container = document.getElementById("dynamic-container");
+            container.innerHTML = "";
+            const pdfPath = "{% static '/AY 2024-25 CS Sem2 E1 E2 E3 E4 Time Tables final-1-1.pdf' %}";
+            const Bospath = "{% static '/BoS CSE for revision of Syllabus - B.Tech  - 26.07.2023-1.pdf'%}";
+            // Open the PDF in a new tab
+            if (data[selection]) {
+                data[selection].forEach(item => {
+                    let div = document.createElement("div");
+                    div.className = "box";
+                    div.textContent = item;
+                    div.onclick = function() { handleClick(item); };
+                    container.appendChild(div);
+                });
+            }
+            else if (['WT'].includes(selection)) {
+                window.open(`${'WT Unit-1 Final'}.pdf`, '_blank');
+            }
+            else if(['Timetable'].includes(selection)){
+              //window.open(`${'AY 2024-25 CS Sem2 E1 E2 E3 E4 Time Tables final-1-1'}.pdf`,'_blank');
+                window.open(pdfPath, '_blank')
+            }
+            else if(['BOS'].includes(selection)){
+              //window.open(`${'static/BoS CSE for revision of Syllabus - B.Tech  - 26.07.2023-1'}.pdf`,'_blank');
+                window.open(Bospath,'_blank')
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Select an Option</h2>
+    <div class="container">
+        <div class="box" onclick="handleClick('B.Tech')">B.Tech</div>
+        <div class="box" onclick="handleClick('P1 Sem1')">P1 Sem1</div>
+        <div class="box" onclick="handleClick('P1 Sem2')">P1 Sem2</div>
+        <div class="box" onclick="handleClick('P2 Sem1')">P2 Sem1</div>
+        <div class="box" onclick="handleClick('P2 Sem2')">P2 Sem2</div>
+    </div>
+    
+    <h2>Details</h2>
+    <div id="dynamic-container" class="container"></div>
+    <script>
+        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Z28aoF-zL3y_pyPEiASN6";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+        </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Registration Form</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1E3C72, #2A5298, #4A90E2, #A8C0FF);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover; /* Ensures the gradient covers the entire screen */
+        }
+
+        .form-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px; /* Limit the width of the form container */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2A5298;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Club Registration Form</h2>
+        <form action="/submit-registration" method="POST">
+            
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+        
+            <label for="club">Select Club:</label>
+            <select id="club" name="club" required>
+                <option value="" disabled selected>Choose a club</option>
+                <option value="cyber-security">Cyber Security Club</option>
+                <option value="ai">Artificial Intelligence Club</option>
+                <option value="gate">GATE Club</option>
+                <option value="upsc">UPSC Club</option>
+                <option value="fashion">Fashion Designing Club</option>
+                <option value="dance">Dance Club</option>
+                <option value="film-media">Film & Media Club</option>
+                <option value="finance">Finance Club</option>
+                <option value="robotics">Robotics Club</option>
+            </select>
+
+            
+            <label for="message">Why do you want to join this club?</label>
+            <textarea id="message" name="message" placeholder="Write your reason here..." required></textarea>
+
+            
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Registration Form</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1E3C72, #2A5298, #4A90E2, #A8C0FF);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover; /* Ensures the gradient covers the entire screen */
+        }
+
+        .form-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 600px; /* Limit the width of the form container */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #ccc;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 90%; /* Make all form elements take full width */
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #333;
+            background-color: #fff;
+            transition: all 0.3s ease-in-out;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #4A90E2;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        button {
+            width: 95%;
+            padding: 14px;
+            background: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #2A5298;
+            transform: scale(1.05);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Club Registration Form</h2>
+        <form action="/submit-registration" method="POST">
+            {% csrf_token %}
+            <!-- Full Name -->
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+
+            <!-- Email -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <!-- Phone Number -->
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <!-- Select Club -->
+            <label for="club">Select Club:</label>
+            <select id="club" name="club" required>
+                <option value="" disabled selected>Choose a club</option>
+                <option value="cyber-security">Cyber Security Club</option>
+                <option value="ai">Artificial Intelligence Club</option>
+                <option value="gate">GATE Club</option>
+                <option value="upsc">UPSC Club</option>
+                <option value="fashion">Fashion Designing Club</option>
+                <option value="dance">Dance Club</option>
+                <option value="film-media">Film & Media Club</option>
+                <option value="finance">Finance Club</option>
+                <option value="robotics">Robotics Club</option>
+            </select>
+
+            <!-- Additional Information -->
+            <label for="message">Why do you want to join this club?</label>
+            <textarea id="message" name="message" placeholder="Write your reason here..." required></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

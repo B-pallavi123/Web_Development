@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Box</title>
+  <link rel="stylesheet" href="{% static 'dboard.css' %}">
+  <link rel="stylesheet" href="{% static 'chat_box.css' %}">
+</head>
+<body>
+  
+  <!-- Display chat messages -->
+   <h1 align="center">Q&A SESSION</h1>
+  <div id="chat-messages">
+    {% for message in chat_messages %}
+      {% if not message.parent %}  <!-- Only display top-level messages -->
+        <div class="message {% if message.user == request.user %}current-user{% else %}other-user{% endif %}">
+          <div class="username">{{ message.user.username }}</div>
+          <div>{{ message.message }}</div>
+          <div class="timestamp">{{ message.timestamp|time:"H:i" }}</div>
+
+          <!-- Reply Button -->
+          <button class="reply-button" onclick="showReplyForm('{{ message.id }}')">Reply</button>
+
+          <!-- Reply Form (Hidden by Default) -->
+          <form id="reply-form-{{ message.id }}" class="reply-form" method="POST" action="{% url 'reply_to_message' message.id %}" style="display: none;">
+            {% csrf_token %}
+            <input type="text" name="reply" placeholder="Type your reply..." required>
+            <button type="submit">Send Reply</button>
+          </form>
+
+          <!-- Display Replies -->
+          <div class="replies">
+            {% for reply in message.replies.all %}
+              <div class="reply">
+                <div class="username">{{ reply.user.username }}</div>
+                <div>{{ reply.message }}</div>
+                <div class="timestamp">{{ reply.timestamp|time:"H:i" }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- Form to submit new messages -->
+  <form method="POST" action="{% url 'chat_box' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="input-container">
+      <input type="text" name="message" placeholder="Type a message..." class="message-input" required>
+      <button type="submit">Send</button>
+    </div>
+  </form>
+
+  
+  <script>
+    // JavaScript to show/hide the reply form
+    function showReplyForm(messageId) {
+      const replyForm = document.getElementById(`reply-form-${messageId}`);
+      replyForm.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

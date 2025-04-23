@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Clubs</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1E3C72, #2A5298, #4A90E2, #A8C0FF);
+            color: white;
+        }
+        .heading{
+            font-size:50px;
+            color: aliceblue;
+            background-color: #2A5298;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            width: 300px;
+            height: 200px;
+            margin: 15px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .card .overlay h2 {
+            font-size: 24px;
+            color: white;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading">CLUBS IN RGUKT RK VALLEY</h1>
+    <div class="container">
+        <!-- Cyber Security Club -->
+        <a href="{% url 'form' %}">
+            <div class="card">
+                <img src="https://media.istockphoto.com/id/1420039900/photo/cyber-security-ransomware-email-phishing-encrypted-technology-digital-information-protected.jpg?s=1024x1024&w=is&k=20&c=IF7urJ01pDieoE-QDg-hrMNL82vG3LCYnYjG2yGDN1o=" alt="Cyber Security">
+                <div class="overlay">
+                    <h2>Cyber Security Club</h2>
+                </div>
+            </div>
+        </a>
+
+        <!-- Artificial Intelligence Club -->
+        <a href="{% url 'form' %}">
+            <div class="card">
+                <img src="https://plus.unsplash.com/premium_photo-1683121710572-7723bd2e235d?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Artificial Intelligence">
+                <div class="overlay">
+                    <h2>Artificial Intelligence Club</h2>
+                </div>
+            </div>
+        </a>
+
+        <!-- GATE Club -->
+        <a href="{% url 'form' %}">
+            <div class="card">
+                <img src="https://media.istockphoto.com/id/949118068/photo/books.webp?a=1&b=1&s=612x612&w=0&k=20&c=lxb-mHWs3AkeKR-J7ZwD8a5Mo9vmsq3uYPMaJbIUoCI=" alt="GATE">
+                <div class="overlay">
+                    <h2>GATE Club</h2>
+                </div>
+            </div>
+        </a>
+
+        <!-- UPSC Club -->
+        <a href="{% url 'form' %}">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="UPSC">
+                <div class="overlay">
+                    <h2>UPSC Club</h2>
+                </div>
+            </div>
+        </a>
+
+        <!-- Fashion Designing Club -->
+        <a href="{% url 'form' %}">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1619384846683-8dede3452564?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Fashion Designing">
+                <div class="overlay">
+                    <h2>Fashion Designing Club</h2>
+                </div>
+            </div>
+        </a>
+
+        <!-- Dance Club -->
+        <a href="{% url 'form' %}">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1537365587684-f490102e1225?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dance">
+                <div class="overlay">
+                    <h2>Dance Club</h2>
+                </div>
+            </div>
+        </a>
+
+        <!-- Film & Media Club -->
+        <a href="{% url 'form' %}">
+            <div class="card">
+                <img src="https://media.istockphoto.com/id/1427212392/photo/production-team-shooting-some-video-movie-for-tv-commercial-with-studio-equipment-set.jpg?s=1024x1024&w=is&k=20&c=H9XfqarpBvCvDarwjB_LsrVefuIjk7Cy6mrtmeVK8UQ=" alt="Film & Media">
+                <div class="overlay">
+                    <h2>Film & Media Club</h2>
+                </div>
+            </div>
+        </a>
+
+        <!-- Finance Club -->
+        <a href="{% url 'form' %}">
+            <div class="card">
+                <img src="https://plus.unsplash.com/premium_photo-1681487769650-a0c3fbaed85a?q=80&w=1555&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Finance">
+                <div class="overlay">
+                    <h2>Finance Club</h2>
+                </div>
+            </div>
+        </a>
+
+        <!-- Robotics Club -->
+        <a href="{% url 'form' %}">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1518314916381-77a37c2a49ae?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Robotics">
+                <div class="overlay">
+                    <h2>Robotics Club</h2>
+                </div>
+            </div>
+        </a>
+    </div>
+    <script>
+        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Z28aoF-zL3y_pyPEiASN6";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+        </script>
+</body>
+</html>
