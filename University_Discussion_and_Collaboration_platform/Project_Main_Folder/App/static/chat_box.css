@@ -1,0 +1,103 @@
+/* Chat container */
+#chat-messages {
+    width: 98%;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    height: 590px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+  }
+  .message-input{
+    width:80%;
+    height:30px;
+  }
+  /* Message styling */
+  .message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 40%;
+    word-wrap: break-word;
+    display: block;
+    text-align: left;
+    position: relative;
+  }
+  
+  /* Current user's messages (right side) */
+  .message.current-user {
+    background-color: #dcf8c6; /* Light green */
+    margin-left: auto;
+    text-align: right;
+  }
+
+  
+  /* Other users' messages (left side) */
+  .message.other-user {
+    background-color: rgb(185, 212, 223); /* White */
+    margin-right: auto;
+    text-align: left;
+  }
+  
+  .username {
+    font-size: 0.8em;
+  }
+  
+  /* Timestamp styling */
+  .timestamp {
+    font-size: 0.8em;
+    color: #666;
+  }
+  
+  /* Reply Button */
+  .reply-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  
+  .reply-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Reply Form */
+  .reply-form {
+    margin-top: 10px;
+  }
+  
+  .reply-form input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 80%;
+  }
+  
+  .reply-form button {
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .reply-form button:hover {
+    background-color: #218838;
+  }
+  
+  /* Replies Styling */
+  .replies {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  
+  .reply {
+    border-left: 2px solid #007bff;
+    padding-left: 10px;
+    margin-top: 5px;
+  }
